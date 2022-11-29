@@ -25,7 +25,7 @@ We know that any at-home work in an interview process requires your time, and we
 
 If you do not anticipate having the space to complete this assessment, please let us know, and we will work with you to find alternatives. There is not a harsh deadline on returning the assessment after receiving it.
 
-You can share your project with us as a repo on GitHub (@seanmalbert, @ludtkemorgan, @emilyjablonski, @yazeedloonat, @kramduckner, @colinbuyck) or as a zip file in your email chain. We look forward to seeing it!
+You can share your project with us as a repo on GitHub (@seanmalbert, @ludtkemorgan, @emilyjablonski, @yazeedloonat, @kramduckner, @colinbuyck, @adriencyberspace) or as a zip file in your email chain. We look forward to seeing it!
 
 ## Available Scripts
 
