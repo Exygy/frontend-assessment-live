@@ -1,6 +1,6 @@
 # Exygy In Person Frontend Assessment
 
-This project was initialized with [Create React App](https://github.com/facebook/create-react-app) and Typescript.
+This project was initialized with [Vite](https://vitejs.dev/) and Typescript.
 
 This repo is an implementation of [part 1](https://github.com/Exygy/frontend-assessment-part-1/blob/main/README.md) of our frontend assessment, which asks candidates to build a visual directory of housing listings. One additional feature has been added on top of that assessment, which is pagination of the listings.
 
@@ -31,7 +31,7 @@ You can share your project with us as a repo on GitHub (@seanmalbert, @ludtkemor
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
