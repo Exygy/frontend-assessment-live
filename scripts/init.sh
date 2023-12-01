@@ -6,7 +6,7 @@ BPurple='\033[1;35m'
 
 echo -e "${BRed}Hello :) You are about to start on the first part of the Exygy Front End Interview${NC}\n"
 echo "Let's set everything up..."
-echo "Please type the first two letters of your first name and first two letters of your last name. For example, Jane Appleseed would type jaap."
+echo "Please type the first two letters of your first name and first two letters of your last name. For example, Johnny Appleseed would type JoAp."
 
 read initials
 
@@ -20,7 +20,7 @@ while true; do
     esac
 done
 
-echo -e "You are all set up. \nWe recommend committing and pushing often (we won't look at your commit log). When you are ready to submit please make a pull request against main.\n"
+echo -e "You are all set up. \nPlease remember to push your changes to your branch at the end of the interview."
 
 echo -e "${BPurple}Good luck <3${NC}"
 

@@ -1,5 +1,5 @@
 {
-  "name": "Exygy FrontEnd Assessment Part 1",
+  "name": "Exygy FrontEnd Assessment Live",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
     "cpus": 4
@@ -13,15 +13,10 @@
   },
   "customizations": {
     "codespaces": {
-      "openFiles": [
-        "README.md"
-      ]
+      "openFiles": ["README.md"]
     },
     "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ]
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
     }
   },
   "forwardPorts": [3000],
@@ -30,5 +25,5 @@
       "label": "React App",
       "onAutoForward": "openPreview"
     }
-  },
+  }
 }
