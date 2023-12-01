@@ -1,8 +1,8 @@
-# Exygy Frontend Assessment Part 2
+# Exygy In Person Frontend Assessment
 
 This project was initialized with [Create React App](https://github.com/facebook/create-react-app) and Typescript.
 
-This repo is an implementation of [part 1](https://github.com/Exygy/frontend-assessment-part-1/blob/main/README.md) of our frontend assessment, which asked you to build a visual directory of housing listings. One additional feature has been added on top of what exists in part 1, which is pagination of the listings.
+This repo is an implementation of [part 1](https://github.com/Exygy/frontend-assessment-part-1/blob/main/README.md) of our frontend assessment, which asks candidates to build a visual directory of housing listings. One additional feature has been added on top of that assessment, which is pagination of the listings.
 
 The desired visual implementation of the new pagination feature can be found in [this Figma file](https://www.figma.com/file/mhBuGnbhoXYbbVhMkCsDqm/Frontend-Skills-Assessment-Part-2?node-id=0%3A1&t=7y3TtrYNnA6nNyxK-1). The password for file access is `may_the_force_be_with_you`.
 
