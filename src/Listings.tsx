@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import mockData from "./mock-data.json"
 import { Address, InfoBlock } from "./components/InfoBlock"
 import { Button } from "./components/Button"
@@ -41,7 +41,9 @@ export const Listings = () => {
   const numSteps = Math.ceil(listingData.length / itemsPerPage)
 
   useEffect(() => {
-    setItems(listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1))
+    setItems(
+      listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1)
+    )
   }, [itemsPerPage, listingData])
 
   return (
@@ -70,28 +72,32 @@ export const Listings = () => {
             </div>
             {error && <div className={"error-message"}>{error}</div>}
           </div>
-          <Pagination numSteps={numSteps} selected={page} setSelected={setPage} />
+          <Pagination
+            numSteps={numSteps}
+            selected={page}
+            setSelected={setPage}
+          />
         </div>
         <div className={"listings"}>
           {items.map((listing, index) => {
-              return (
-                <div className="listing" key={index}>
-                  <ImageBlock
-                    imageURL={listing.imageURL}
-                    deadline={listing.deadline}
-                    labels={listing.imageLabels}
-                  />
-                  <InfoBlock
-                    title={listing.name}
-                    address={listing.address}
-                    tableHeader={listing.tableHeader}
-                    tableSubheader={listing.tableSubheader}
-                    labels={listing.listingLabels}
-                    unitRows={listing.unitTableData}
-                  />
-                </div>
-              )
-            })}
+            return (
+              <div className="listing" key={index}>
+                <ImageBlock
+                  imageURL={listing.imageURL}
+                  deadline={listing.deadline}
+                  labels={listing.imageLabels}
+                />
+                <InfoBlock
+                  title={listing.name}
+                  address={listing.address}
+                  tableHeader={listing.tableHeader}
+                  tableSubheader={listing.tableSubheader}
+                  labels={listing.listingLabels}
+                  unitRows={listing.unitTableData}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
