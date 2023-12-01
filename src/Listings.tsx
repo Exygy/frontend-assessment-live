@@ -30,12 +30,14 @@ export interface Listing {
   unitTableData: UnitTable[]
 }
 
+const allData: Listing[] = mockData.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0) as Listing[]
+
 export const Listings = () => {
   const [error, setError] = useState<string | null>(null)
   const [itemsPerPage, setItemsPerPage] = useState(3)
   const [itemsPerPageInput, setItemsPerPageInput] = useState(3)
   const [page, setPage] = useState(1)
-  const [listingData, setListingData] = useState<Listing[]>(mockData as Listing[])
+  const [listingData, setListingData] = useState<Listing[]>(allData)
   const [items, setItems] = useState<Listing[]>([])
   const [unitTypeFilter, setUnitTypeFilter] = useState("")
 
@@ -55,9 +57,9 @@ export const Listings = () => {
 
   useEffect(() => {
     if (!unitTypeFilter) {
-      setListingData(mockData as Listing[])
+      setListingData(allData)
     } else {
-      setListingData(mockData.filter((listing) => listing.unitTableData.some((unit) => unit.type === unitTypeFilter)) as Listing[])
+      setListingData(allData.filter((listing) => listing.unitTableData.some((unit) => unit.type === unitTypeFilter)))
     }
   }, [listingData, unitTypeFilter])
 
