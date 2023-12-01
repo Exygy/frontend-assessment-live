@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { SetStateAction, useEffect, useState } from "react"
 import mockData from "./mock-data.json"
 import { Address, InfoBlock } from "./components/InfoBlock"
 import { Button } from "./components/Button"
@@ -35,10 +35,31 @@ export const Listings = () => {
   const [itemsPerPage, setItemsPerPage] = useState(3)
   const [itemsPerPageInput, setItemsPerPageInput] = useState(3)
   const [page, setPage] = useState(1)
+  const [listingData, setListingData] = useState<Listing[]>(mockData as Listing[])
   const [items, setItems] = useState<Listing[]>([])
+  const [unitTypeFilter, setUnitTypeFilter] = useState("")
 
-  const listingData = mockData as Listing[]
   const numSteps = Math.ceil(listingData.length / itemsPerPage)
+
+  const unitTypeOptions = [
+    { value: "studio", label: "Studio" },
+    { value: "oneBdrm", label: "1 BR" },
+    { value: "twoBdrm", label: "2 BR" },
+    { value: "threeBdrm", label: "3 BR" },
+    { value: "fourBdrm", label: "4 BR" }
+  ]
+
+  function onUnitTypeChange(e: { target: { value: SetStateAction<string> } }) {
+    setUnitTypeFilter(e.target.value)
+  }
+
+  useEffect(() => {
+    if (!unitTypeFilter) {
+      setListingData(mockData as Listing[])
+    } else {
+      setListingData(mockData.filter((listing) => listing.unitTableData.some((unit) => unit.type === unitTypeFilter)) as Listing[])
+    }
+  }, [listingData, unitTypeFilter])
 
   useEffect(() => {
     setItems(listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1))
@@ -69,6 +90,14 @@ export const Listings = () => {
               </Button>
             </div>
             {error && <div className={"error-message"}>{error}</div>}
+            <div className="update-items">
+              <select onChange={onUnitTypeChange} value={unitTypeFilter}>
+                <option value="">Unit Type</option>
+                {unitTypeOptions.map(option => 
+                  <option value={option.value}>{option.label}</option>
+                )}
+              </select>
+            </div>
           </div>
           <Pagination numSteps={numSteps} selected={page} setSelected={setPage} />
         </div>
