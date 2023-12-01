@@ -64,7 +64,9 @@ export const Listings = () => {
   }, [listingData, unitTypeFilter])
 
   useEffect(() => {
-    setItems(listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1))
+    setItems(
+      listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1)
+    )
   }, [itemsPerPage, listingData])
 
   return (
@@ -101,28 +103,32 @@ export const Listings = () => {
               </select>
             </div>
           </div>
-          <Pagination numSteps={numSteps} selected={page} setSelected={setPage} />
+          <Pagination
+            numSteps={numSteps}
+            selected={page}
+            setSelected={setPage}
+          />
         </div>
         <div className={"listings"}>
           {items.map((listing, index) => {
-              return (
-                <div className="listing" key={index}>
-                  <ImageBlock
-                    imageURL={listing.imageURL}
-                    deadline={listing.deadline}
-                    labels={listing.imageLabels}
-                  />
-                  <InfoBlock
-                    title={listing.name}
-                    address={listing.address}
-                    tableHeader={listing.tableHeader}
-                    tableSubheader={listing.tableSubheader}
-                    labels={listing.listingLabels}
-                    unitRows={listing.unitTableData}
-                  />
-                </div>
-              )
-            })}
+            return (
+              <div className="listing" key={index}>
+                <ImageBlock
+                  imageURL={listing.imageURL}
+                  deadline={listing.deadline}
+                  labels={listing.imageLabels}
+                />
+                <InfoBlock
+                  title={listing.name}
+                  address={listing.address}
+                  tableHeader={listing.tableHeader}
+                  tableSubheader={listing.tableSubheader}
+                  labels={listing.listingLabels}
+                  unitRows={listing.unitTableData}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
