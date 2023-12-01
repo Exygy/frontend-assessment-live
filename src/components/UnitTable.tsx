@@ -1,4 +1,5 @@
 import React from "react"
+import { RentUnit } from "../enums"
 import "./UnitTable.scss"
 
 export type UnitRow = {
@@ -6,7 +7,7 @@ export type UnitRow = {
   minIncomeMinimum: number
   rentMaximum: number
   rentMinimum: number
-  rentUnit: "currency" | "percentage"
+  rentUnit: RentUnit
   type: "studio" | "oneBdrm" | "twoBdrm" | "threeBdrm" | "fourBdrm"
 }
 
@@ -26,10 +27,10 @@ export const UnitTable = (props: UnitTableProps) => {
     const rentMin = row.rentMinimum.toLocaleString()
     const rentMax = row.rentMaximum.toLocaleString()
     if (rentMin === rentMax) {
-      if (row.rentUnit === "percentage") return `${rentMin}% income`
+      if (row.rentUnit === RentUnit.percentage) return `${rentMin}% income`
       return `$${rentMin} per month`
     }
-    if (row.rentUnit === "percentage") return `${rentMin}% - ${rentMax}% income`
+    if (row.rentUnit === RentUnit.percentage) return `${rentMin}% - ${rentMax}% income`
     return `$${rentMin} - $${rentMax} per month`
   }
 

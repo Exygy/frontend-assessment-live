@@ -5,6 +5,7 @@ import { Button } from "./components/Button"
 import { ImageBlock } from "./components/ImageBlock"
 import { Input } from "./components/Input"
 import { Pagination } from "./components/Pagination"
+import { RentUnit } from "./enums"
 import "./Listings.scss"
 
 export interface UnitTable {
@@ -12,7 +13,7 @@ export interface UnitTable {
   minIncomeMinimum: number
   rentMaximum: number
   rentMinimum: number
-  rentUnit: "percentage" | "currency"
+  rentUnit: RentUnit
   type: "studio" | "oneBdrm" | "twoBdrm" | "threeBdrm" | "fourBdrm"
 }
 
