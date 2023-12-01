@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useEffect, useState } from "react"
 import mockData from "./mock-data.json"
 import { Address, InfoBlock } from "./components/InfoBlock"
 import { Button } from "./components/Button"
@@ -35,9 +35,14 @@ export const Listings = () => {
   const [itemsPerPage, setItemsPerPage] = useState(3)
   const [itemsPerPageInput, setItemsPerPageInput] = useState(3)
   const [page, setPage] = useState(1)
+  const [items, setItems] = useState<Listing[]>([])
 
   const listingData = mockData as Listing[]
   const numSteps = Math.ceil(listingData.length / itemsPerPage)
+
+  useEffect(() => {
+    setItems(listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1))
+  }, [itemsPerPage, listingData])
 
   return (
     <div className={"content"}>
@@ -68,9 +73,7 @@ export const Listings = () => {
           <Pagination numSteps={numSteps} selected={page} setSelected={setPage} />
         </div>
         <div className={"listings"}>
-          {listingData
-            .slice((page - 1) * itemsPerPage, page * itemsPerPage + 1)
-            .map((listing, index) => {
+          {items.map((listing, index) => {
               return (
                 <div className="listing" key={index}>
                   <ImageBlock
