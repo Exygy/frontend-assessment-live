@@ -150,14 +150,6 @@
         "minIncomeMaximum": 2335
       },
       {
-        "type": "threeBdrm",
-        "rentMinimum": 1020,
-        "rentMaximum": 1020,
-        "rentUnit": "currency",
-        "minIncomeMinimum": 2405,
-        "minIncomeMaximum": 2405
-      },
-      {
         "type": "fourBdrm",
         "rentMinimum": 1115,
         "rentMaximum": 1175,
@@ -292,14 +284,6 @@
         "rentUnit": "currency",
         "minIncomeMinimum": 2510,
         "minIncomeMaximum": 2510
-      },
-      {
-        "type": "threeBdrm",
-        "rentMinimum": 1492,
-        "rentMaximum": 1492,
-        "rentUnit": "currency",
-        "minIncomeMinimum": 2984,
-        "minIncomeMaximum": 2984
       },
       {
         "type": "fourBdrm",

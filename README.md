@@ -2,30 +2,34 @@
 
 This project was initialized with [Vite](https://vitejs.dev/) and Typescript.
 
-This repo is an implementation of [part 1](https://github.com/Exygy/frontend-assessment-part-1/blob/main/README.md) of our frontend assessment, which asks candidates to build a visual directory of housing listings. One additional feature has been added on top of that assessment, which is pagination of the listings.
+This repo is an implementation of [part 1](https://github.com/Exygy/frontend-assessment-part-1/blob/main/README.md) of our frontend assessment, which asks candidates to build a visual directory of housing listings. Two additional features has been added on top of that assessment, which is pagination of the listings and filtering by unit type.
 
-The desired visual implementation of the new pagination feature can be found in [this Figma file](https://www.figma.com/file/mhBuGnbhoXYbbVhMkCsDqm/Frontend-Skills-Assessment-Part-2?node-id=0%3A1&t=7y3TtrYNnA6nNyxK-1). The password for file access is `may_the_force_be_with_you`.
+## Pagination
 
 The desired behavior of the new pagination feature is as follows:
 
-- When the application loads, the user should be on page 1 and the default number of items per page should be 2.
-- A user should be able to change the number of items per page. The update takes place when a user clicks the `Update` button.
-- When a user updates the number of items per page, the selected page should reset to page 1.
-- Only numbers greater than 0 are valid in the input for number of items per page.
-- The number of pages should be dynamic based on the length of the list and the number of items per page.
-- A user should be able to navigate through the pages by clicking on the arrows on either side of the numbers themselves.
+1.  When the application loads, the user should be on page 1 and the default number of items per page should be 2.
+2.  A user should be able to change the number of items per page. The update takes place when a user clicks the "Update" button.
+3. A user should be able to paginate by clicking the arrows or the numbers
+4. When a user updates the number of items per page, the selected page should reset to page 1.
+5. Only numbers greater than 0 are valid in the input for number of items per page.
+6. The number of pages should be dynamic based on the length of the list and the number of items per page.
+7. A user should be able to navigate through the pages by clicking on the arrows on either side of the numbers themselves.
 
-In this second part of the assessment, we would like you to review the addition of pagination as if you were reviewing someone else's code. The implementation of pagination here is intentionally buggy. We'd like you to take note of any bugs or issues you find with pagination whether functional or visual, and try to fix them in your local clone of this repo. Feel free to add comments if that's helpful for you. Please do not create a public fork of this repo, or a PR in this repo, but use this repo as your base.
+## Responsivity
 
-There are two main commits in this repo, the first being just the UI, and the second being the attempt at adding the pagination functionality. It may be helpful to view that [second functional commit](https://github.com/Exygy/frontend-assessment-part2/commit/f6594fe94eb794865840d25bdfa4edbd6044f24b) in isolation, to see what has been added on top.
+1. Look for any issues when in a mobile view. Do filters, pagination and the listing layout look comparable to the desktop view?
 
-In the in-person skills interview, which is your next step and the last part of our technical interviews, we will take some time to do brief overviews of both your part 1 and part 2 assessment with you, to chat about the approach you took and what you found. You do not need to make any changes in the repo or do a code review outside of the desired criteria for pagination.
+## Unit Type Filter
 
-We know that any at-home work in an interview process requires your time, and we want to be respectful of that time while also ensuring this role is a good fit for you. Please do not spend more than 1 hour on this assessment. If you run out of time to complete what you wanted, that’s okay! We are more interested in what bugs you found and how you found them versus fixing them, if that helps you focus your time. We look forward to having a conversation with you about what you completed.
+1. A user should be able to filter listings by selecting a unit type.
+2. The unit type options should only reflect types that are assigned to listings.
 
-If you do not anticipate having the space to complete this assessment, please let us know, and we will work with you to find alternatives. There is not a harsh deadline on returning the assessment after receiving it.
+## Code Quality
 
-You can share your project with us as a repo on GitHub (@seanmalbert, @ludtkemorgan, @emilyjablonski, @yazeedloonat, @kramduckner, @colinbuyck, @adriencyberspace, @chadbrokaw-exygy) or as a zip file in your email chain. We look forward to seeing it!
+We should try and leave code better than we found it. One opportunity to do that within a codebase is to limit the use of string literals and use [enums](https://www.typescriptlang.org/docs/handbook/enums.html) instead. Enums make it easier to document intent or create a set of distinct cases.
+
+In Listings.tsx and UnitTable.tsx you will find interfaces for UnitTable and UnitRow, respectively, which have a property "type" with a union of string literals. Please create an enum to use for "type" in both cases. If done correctly, you should also be able to remove the use of "unitStrings" in UnitTable.tsx.
 
 ## Available Scripts
 
