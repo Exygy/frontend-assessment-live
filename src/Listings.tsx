@@ -34,8 +34,8 @@ const allData: Listing[] = mockData.sort((a, b) => a.name < b.name ? -1 : a.name
 
 export const Listings = () => {
   const [error, setError] = useState<string | null>(null)
-  const [itemsPerPage, setItemsPerPage] = useState(3)
-  const [itemsPerPageInput, setItemsPerPageInput] = useState(3)
+  const [itemsPerPage, setItemsPerPage] = useState(2)
+  const [itemsPerPageInput, setItemsPerPageInput] = useState(2)
   const [page, setPage] = useState(1)
   const [listingData, setListingData] = useState<Listing[]>(allData)
   const [items, setItems] = useState<Listing[]>([])
@@ -65,9 +65,11 @@ export const Listings = () => {
 
   useEffect(() => {
     setItems(
-      listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage + 1)
+      listingData.slice((page - 1) * itemsPerPage, page * itemsPerPage)
     )
-  }, [itemsPerPage, listingData])
+  }, [itemsPerPage, page, listingData])
+
+console.log(page)
 
   return (
     <div className={"content"}>
